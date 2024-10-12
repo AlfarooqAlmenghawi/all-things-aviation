@@ -10,8 +10,7 @@ const seed = ({ airports }) => {
     })
     .then(() => {
       return createTableAirports();
-    })
-    .then(() => {});
+    });
 };
 
 function createTableAirports() {

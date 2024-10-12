@@ -23,3 +23,25 @@ describe("GET", () => {
       });
   });
 });
+
+describe("POST", () => {
+  test("/api/airports/ --> 201: Returns the object when airports table is empty", () => {
+    return request(app)
+      .post("/api/airports/")
+      .send({
+        airport_name: "Manchester Airport",
+        airport_code: "MAN",
+        airport_location: "Manchester",
+      })
+      .expect(201)
+      .then(({ body }) => {
+        console.log(body); // This test uses { text } to destructure the message because it's not an object.
+        expect(body).toEqual({
+          airport_code: "MAN",
+          airport_id: 1,
+          airport_location: "Manchester",
+          airport_name: "Manchester Airport",
+        });
+      });
+  });
+});
