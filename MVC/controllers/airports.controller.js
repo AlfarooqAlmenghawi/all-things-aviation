@@ -13,12 +13,18 @@ const getAirports = (request, response) => {
   });
 };
 
-const postAirport = (request, response) => {
+const postAirport = (request, response, next) => {
   const airportToAdd = request.body;
-  return addAirport(airportToAdd).then((addedAirport) => {
-    console.log(addedAirport);
-    response.status(201).send(addedAirport);
-  });
+  return addAirport(airportToAdd)
+    .then((addedAirport) => {
+      console.log(addedAirport);
+      response.status(201).send(addedAirport);
+    })
+    .catch((error) => {
+      next(error);
+      console.log(error);
+      // response.status(error.status).send(error.message);
+    });
 };
 
 module.exports = { getAirports, postAirport };

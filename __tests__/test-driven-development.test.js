@@ -37,10 +37,31 @@ describe("POST", () => {
       .then(({ body }) => {
         console.log(body); // This test uses { text } to destructure the message because it's not an object.
         expect(body).toEqual({
-          airport_code: "MAN",
-          airport_id: 1,
-          airport_location: "Manchester",
-          airport_name: "Manchester Airport",
+          newSuccessfullyAddedAirport: {
+            airport_code: "MAN",
+            airport_id: 1,
+            airport_location: "Manchester",
+            airport_name: "Manchester Airport",
+          },
+        });
+      });
+  });
+
+  test("/api/airports/ --> 200: Checks that the airport is now added to the database after the POST action to the endpoint by selecting them all", () => {
+    return request(app)
+      .get("/api/airports/")
+      .expect(200)
+      .then(({ body }) => {
+        console.log(body);
+        expect(body).toEqual({
+          airports: [
+            {
+              airport_id: 1,
+              airport_name: "Manchester Airport",
+              airport_code: "MAN",
+              airport_location: "Manchester",
+            },
+          ],
         });
       });
   });
