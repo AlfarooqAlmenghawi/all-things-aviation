@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS aviation;
-CREATE TABLE aviation;
+CREATE DATABASE aviation;
 
 DROP DATABASE IF EXISTS aviation_test;
-CREATE TABLE aviation_test;
+CREATE DATABASE aviation_test;

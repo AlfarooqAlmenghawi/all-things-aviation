@@ -4,7 +4,7 @@
   "description": "A repository focused on building the backend of an aviation site",
   "main": "index.js",
   "scripts": {
-    "setup-the-databases": "echo \"Error: no test specified\" && exit 1",
+    "setup-the-databases": "psql -f database-handling/setup-test-and-dev-databases.sql",
     "test": "jest",
     "nodemon": "NODE_ENV=test nodemon appfornodemon.js",
     "seed-dev": "node ./database-handling/run-seed.js"
