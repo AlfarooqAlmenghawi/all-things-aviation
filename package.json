@@ -6,8 +6,8 @@
   "scripts": {
     "setup-the-databases": "psql -f database-handling/setup-test-and-dev-databases.sql",
     "test": "jest",
-    "nodemon": "NODE_ENV=test nodemon appfornodemon.js",
-    "seed-dev": "node ./database-handling/run-seed.js"
+    "nodemon": "nodemon appfornodemon.js",
+    "seed-development-database": "node ./database-handling/run-seed.js"
   },
   "keywords": [],
   "author": "",
